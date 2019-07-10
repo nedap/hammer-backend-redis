@@ -155,7 +155,7 @@ defmodule Hammer.Backend.Redis do
           {:ok, 0}
 
         {:ok, keys} ->
-          {:ok, [count_deleted, _]} =
+          {:ok, [_, _, _, [count_deleted, _]]} =
             Redix.pipeline(r, [
               ["MULTI"],
               ["DEL" | keys],
